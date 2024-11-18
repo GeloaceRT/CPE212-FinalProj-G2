@@ -1,0 +1,14 @@
+#Here is the inventory, there two groups for each Linux Distributions, Ubuntu, and CentOS.
+#Input the IP Address of your VM's after the placeholder.
+#To check for connection between the Control Node to Manage Node use "ansible all -m ping".
+#Formats:
+#Ubuntu - "ip address"
+#CentOS - "ip address" ansible_user="username in CentOS"
+
+[Ubuntu]
+192.168.56.102 
+192.168.56.103
+
+[CentOS]
+192.168.56.104 ansible_user=azamora 
+

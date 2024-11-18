@@ -426,16 +426,39 @@ body {
   margin-top: 40px;
 }
 
-.github-button {
+.github-link {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px; /* Space between the buttons */
   margin-top: 20px;
-  margin-bottom: 20px;
-  display: inline-block;
+}
+
+/* GitHub Link Wrapper */
+.github-link {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Align the buttons vertically (optional) */
+  gap: 10px; /* Space between the buttons */
+  margin-top: 20px;
+}
+
+/* GitHub Link Wrapper */
+.github-link {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 10px; /* Space between the buttons */
+  margin-top: 20px;
+}
+
+/* GitHub Button Styling */
+.github-button {
   padding: 10px 20px;
   background-color: #ffffff;
   color: rgb(36, 55, 109);
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .github-button:hover {
@@ -443,3 +466,21 @@ body {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
+
+/* PDF Button Styling (styled like the GitHub button) */
+.pdf-button {
+  padding: 10px 20px;
+  background-color: #ffffff; /* Match the GitHub button */
+  color: rgb(36, 55, 109); /* Match the GitHub button */
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pdf-button:hover {
+  background-color: #a7cfff; /* Match the hover effect of GitHub button */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+

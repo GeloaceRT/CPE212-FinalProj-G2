@@ -1,0 +1,46 @@
+# Updates repository index and installs Docker if not yet installed
+---
+ - hosts: all
+   become: true
+   pre_tasks:
+
+   - name: update repository index (CentOS)
+     tags: centos
+     package:
+       update_cache: yes
+     changed_when: false
+     when: ansible_distribution == "CentOS"
+
+   - name: update repository index (Ubuntu)
+     tags: ubuntu
+     package:
+       update_cache: yes
+     changed_when: false
+     when: ansible_distribution == "Ubuntu"
+
+   - name: Install Docker (Ubuntu)
+     tags: ubuntu, docker
+     package: 
+       name: docker.io
+       state: latest
+     when: ansible_distribution == "Ubuntu"
+
+   - name: Install Docker (CentOS)
+     tags: centos, docker
+     package: 
+       name: docker.io
+       state: latest
+     when: ansible_distribution == "CentOS"
+
+# roles
+ 
+ - hosts: CentOS
+   become: true
+   roles:
+     - CentOS
+
+ - hosts: Ubuntu
+   become: true
+   roles:
+     - Ubuntu
+

@@ -1,0 +1,16 @@
+---
+ - name: Build Docker Image (Ubuntu)
+   tags: ubuntu, docker
+   docker_image:
+     path: ~/*PROTO/Docker/Dockerfile
+     name: web-app
+     tag: latest
+   when: ansible_distribution == "Ubuntu"
+
+ - name: Build Docker Image (CentOS)
+   tags: centos, docker
+   docker_image:
+     path: ~/*PROTO/Docker/Dockerfile
+     name: web-app
+     tag: latest
+   when: ansible_distribution == "CentOS"

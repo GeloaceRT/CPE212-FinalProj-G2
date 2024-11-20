@@ -6,9 +6,9 @@
 #CentOS - "ip address" ansible_user="username in CentOS"
 
 [Ubuntu]
-192.168.56.102 
-192.168.56.103
+192.168.56.108 
+192.168.56.109
 
 [CentOS]
-192.168.56.104 ansible_user=azamora 
+192.168.56.110 ansible_user=azamora_admin 
 

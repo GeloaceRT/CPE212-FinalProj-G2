@@ -1,18 +1,17 @@
 ---
-- name: Add user to docker group
-  ansible.builtin.user:
-    name: USERNAME
-    groups: docker
-    append: true
+ - name: Add user to docker group
+   ansible.builtin.user:
+     name: "{{ ansible_user }}"
+     groups: docker
+     append: true
 
-- name: Reset ssh connection to allow user changes to affect ansible user
-  ansible.builtin.meta:
-    reset_connection
+ - name: Reset ssh connection to allow user changes to affect ansible user
+   ansible.builtin.meta:
+     reset_connection   
 
-- name: Build Docker Image (CentOS)
-  tags: centos, docker
-  docker_image:
-    path: ~/*PROTO/Docker/Dockerfile
-    name: web-app
-    tag: latest
-  when: ansible_distribution == "CentOS"
+ - name: Pull Docker Image (CentOS)
+   tags: docker, centos
+   docker_image:
+     name: "khlvn/web-app:latest"
+     source: pull
+   when: ansible_distribution == "CentOS"

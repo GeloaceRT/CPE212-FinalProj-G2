@@ -28,9 +28,16 @@
    - name: Install Docker (CentOS)
      tags: centos, docker
      package: 
-       name: docker.io
+       name: docker-ce
        state: latest
      when: ansible_distribution == "CentOS"
+
+   - name: Start Docker Service
+     tags: docker, ubuntu, centos
+     service:
+       name: docker
+       state: started
+       enabled: true
 
 # roles
  

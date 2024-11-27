@@ -24,6 +24,21 @@
        name: docker.io
        state: latest
      when: ansible_distribution == "Ubuntu"
+     
+   - name: Install yum utils
+     tags: centos, docker
+     yum:
+       name: yum-utils
+       state: latest
+     when: ansible_distribution == "CentOS"
+
+   - name: Add Docker repo
+     tags: centos, docker
+     get_url:
+       url: https://download.docker.com/linux/centos/docker-ce.repo
+       dest: /etc/yum.repos.d/docer-ce.repo
+     become: yes
+     when: ansible_distribution == "CentOS"
 
    - name: Install Docker (CentOS)
      tags: centos, docker

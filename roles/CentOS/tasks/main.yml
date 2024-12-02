@@ -12,8 +12,18 @@
    when: ansible_distribution == "CentOS"
 
  - name: Pull Docker Image (CentOS)
-   tags: image, centos
+   tags: image-centos
    docker_image:
      name: "khlvn/web-app:latest"
      source: pull
    when: ansible_distribution == "CentOS"
+   
+   
+ - name: Run Docker Container
+   tags: centoscon
+   docker_container:
+     name: sampleweb
+     image: "khlvn/web-app:latest"
+     ports:
+       - "8080:80"
+     state: started

@@ -1,6 +1,6 @@
 # Updates repository index and installs Docker if not yet installed
 ---
- - hosts: all
+ - hosts: Ubuntu, CentOS
    become: true
    pre_tasks:
 

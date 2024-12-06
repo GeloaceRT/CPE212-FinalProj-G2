@@ -18,12 +18,16 @@
      changed_when: false
      when: ansible_distribution == "Ubuntu"
 
+  # Ubuntu
+
    - name: Install Docker (Ubuntu)
      tags: ubuntu, docker
      package: 
        name: docker.io
        state: latest
      when: ansible_distribution == "Ubuntu"
+
+  #CentOS
      
    - name: Install yum utils
      tags: centos, docker
@@ -47,12 +51,27 @@
        state: latest
      when: ansible_distribution == "CentOS"
 
+  # Both
+
    - name: Start Docker Service
      tags: docker, ubuntu, centos
      service:
        name: docker
        state: started
        enabled: true
+
+
+# Post Task (running the container)
+
+   post_tasks:
+   - name: Run Docker Container
+     tags: ubuntucon
+     docker_container:
+       name: sampleweb
+       image: "khlvn/web-app:latest"
+       ports:
+         - "8080:80"
+       state: started
 
 # roles
  
@@ -65,4 +84,3 @@
    become: true
    roles:
      - Ubuntu
-

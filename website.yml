@@ -1,0 +1,15 @@
+#Playbook used for testing connectivity on the docker containers in remote servers
+---
+ - name: Open a website on the control node
+   hosts: localhost
+   vars:
+     servers:
+       - centos9
+       - server1
+
+   tasks:
+     - name: Verify Web App connectivity using curl
+       command: curl {{ item }}:8080
+       loop: "{{ servers }}"
+       register: result
+       failed_when: result.rc != 0

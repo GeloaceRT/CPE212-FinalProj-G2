@@ -13,6 +13,7 @@
 ### Structure of the Project:
 - The file management of the projects alongside the HTML files for the Web App and the Ansible playbooks are structured and organized properly as seen below:
 ```bash
+CPE212-FinalProj-PROTO
 ├── ansible.cfg
 ├── Docker
 │   ├── Dockerfile

@@ -72,7 +72,7 @@ In the post-tasks section, the playbook deploys a container named `sampleweb` us
   ### 1.1 Running the CentOS role `main.yml` task
   This segment of the playbook ensures that the user running the tasks is added to the Docker group, which allows managing Docker commands without root privileges. The ansible.builtin.user module appends the current user ({{ ansible_user }}) to the docker group, enabling permissions to use Docker efficiently.
 
-  The playbook then pulls the khlvn/web-app:latest Docker image using the docker_image module, fetching it from the Docker registry. This step is also limited to CentOS with a when condition checking the OS.
+  The playbook then pulls the `khlvn/web-app:latest` Docker image using the docker_image module, fetching it from the Docker registry. This step is also limited to CentOS with a when condition checking the OS.
 
   ### 1.2 Running the Ubuntu role `main.yml` task
   This portion of the playbook focuses on tasks for Ubuntu servers. It starts by ensuring the current user ({{ ansible_user }}) is added to the docker group using the ansible.builtin.user module. This allows the user to execute Docker commands without needing root permissions. The append: true ensures that the Docker group is added to the user's existing group memberships.

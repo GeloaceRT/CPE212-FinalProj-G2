@@ -6,12 +6,6 @@
      groups: docker
      append: true
 
-# - name: newgrp command
-#   tags: centos, group
-#   shell: "newgrp docker || true"
-#   become: yes
-#   when: ansible_distribution == "CentOS"
-
  - name: Pull Docker Image (CentOS)
    tags: image-centos
    docker_image:
@@ -19,11 +13,3 @@
      source: pull
    when: ansible_distribution == "CentOS"   
    
-# - name: Run Docker Container
-#   tags: centoscon
-#   docker_container:
-#     name: sampleweb
-#     image: "khlvn/web-app:latest"
-#     ports:
-#       - "8080:80"
-#     state: started

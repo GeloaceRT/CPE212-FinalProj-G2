@@ -6,24 +6,9 @@
      groups: docker
      append: true
 
-# - name: newgrp command
-#   tags: ubuntu, group
-#   command: newgrp docker  
-#   become: yes
-#   when: ansible_distribution == "Ubuntu"
-   
  - name: Pull Docker Image (Ubuntu)
    tags: image-ubuntu
    docker_image:
      name: "khlvn/web-app:latest"
      source: pull
-   when: ansible_distribution == "Ubuntu"
-   
-# - name: Run Docker Container
-#   tags: ubuntucon
-#   docker_container:
-#     name: sampleweb
-#     image: "khlvn/web-app:latest"
-#     ports:
-#       - "8080:80"
-#     state: started
+   when: ansible_distribution == "Ubuntu"   

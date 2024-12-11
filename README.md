@@ -77,12 +77,12 @@ In the post-tasks section, the playbook deploys a container named `sampleweb` us
   ### 1.2 Running the Ubuntu role `main.yml` task
   This portion of the playbook focuses on tasks for Ubuntu servers. It starts by ensuring the current user ({{ ansible_user }}) is added to the docker group using the ansible.builtin.user module. This allows the user to execute Docker commands without needing root permissions. The append: true ensures that the Docker group is added to the user's existing group memberships.
 
-  The playbook then pulls the Docker image khlvn/web-app:latest from the Docker registry using the docker_image module. This step is conditional and only executes on Ubuntu systems (when: ansible_distribution == "Ubuntu).
+  The playbook then pulls the Docker image `khlvn/web-app:latest` from the Docker registry using the docker_image module. This step is conditional and only executes on Ubuntu systems (when: ansible_distribution == "Ubuntu).
 
 ### 2. (OPTIONAL) Testing the Web App 
 
 To verify connectivity and functionality of the web application, execute the Website Playbook using the command:
 `ansible-playbook --ask-become-pass website.yml`.
 
-This playbook utilizes curl to fetch the URL of the web application, providing a quick and automated way to confirm connectivity. However, for a more comprehensive verification, accessing the application directly via a web browser at localhost:8080 is recommended. This approach not only ensures connectivity but also allows users to fully interact with and observe the web application's interface and content, offering a more complete evaluation of its functionality.
+This playbook utilizes curl to fetch the URL of the web application, providing a quick and automated way to confirm connectivity. However, for a more comprehensive verification, accessing the application directly via a web browser at `localhost:8080` is recommended. This approach not only ensures connectivity but also allows users to fully interact with and observe the web application's interface and content, offering a more complete evaluation of its functionality.
 

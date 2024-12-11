@@ -28,7 +28,11 @@ CPE212-FinalProj-PROTO
 │       │   └── Angelo Zamora
 │       │       └── <PDF Files of Activities>
 │       ├── images
-│       │   └── chavez.jpg
+│       │   ├── chavez.jpg
+│       │   ├── bringuela.jpg
+│       │   ├── nicolas.jpg
+│       │   ├── zamora.jpg
+│       │   └── photothumb.db
 │       ├── img1.jpg
 │       ├── img2.jpg
 │       ├── index.html
